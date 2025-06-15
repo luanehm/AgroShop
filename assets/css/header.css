@@ -1,0 +1,16 @@
+/* Header - Grid style */
+header .first-row {
+    background-color: #00592F;
+}
+header .first-row .container {
+    display: flex;
+    align-items: center;
+}
+header .second-row {
+    background-color: #D0E072;
+}
+
+/* Header - Search style */
+header .holder-search {
+    margin-left: 37.5px;;
+}
