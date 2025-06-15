@@ -11,3 +11,11 @@
 .bold {
     font-weight: bold;
 }
+
+a.link-nav {
+    color: #fff;
+    text-decoration: none;
+}
+a.link-nav:hover {
+    text-decoration: underline;
+}

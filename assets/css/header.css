@@ -6,6 +6,12 @@ header .first-row .container {
     display: flex;
     align-items: center;
 }
+header .second-row .container {
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 14px;
+}
 
 /* Header - Search style */
 header .holder-search {
@@ -34,10 +40,60 @@ header .user-navigation {
     align-items: center;
     margin-left: auto;
 }
-header .user-navigation .user-link {
-    color: #FFF;
-    text-decoration: none;
+
+/* Header - Area Navigation style */
+header .area-navigation {
+    display: inline-flex;
+    column-gap: 8px;
+   
 }
-header .user-navigation .user-link:hover {
-    text-decoration: underline;
+header .area-navigation .icon-area {
+    font-size: 34px;
+    color: #CE352E;
+}
+header .area-navigation .area-text {
+    color: #fff;
+}
+header .area-navigation .area-text .area-text--label {
+    font-size: 12px;
+}
+header .area-navigation .area-text .area-text--location {
+    font-size: 16px;
+}
+
+/* Header - Menu style */
+header .menu {
+    margin-left: 32px;
+}
+header .menu .menu-list {
+    display: inline-flex;
+    column-gap: 25px;
+}
+
+
+/* Header - Cart style */
+header .cart {
+    position: relative;
+    margin-left: auto;
+}
+header .cart .cart-link {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 6px;
+}
+header .cart .cart-link .cart-icon {
+    font-size: 30px;
+}
+header .cart .cart-items {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 16px;
+    color: #fff;
+    background-color: #CE352E;
+    border-radius: 100%;
 }
