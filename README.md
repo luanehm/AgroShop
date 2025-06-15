@@ -32,6 +32,12 @@ A AgroShop é uma plataforma digital B2B que atua como uma ponte direta entre pe
 - JavaScript
 ---
 
+## 🎨 Design Figma
+
+https://www.figma.com/design/9lRjZJjKhfUvNgRHPFYR7g/AgroShop?m=auto&t=z547KdJqCEnVASKr-6
+
+---
+
 ## 🚀 Como Executar
 1. Clone este repositório: git clone.
 2. Navegue até a pasta do projeto.
