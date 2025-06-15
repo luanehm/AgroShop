@@ -1,0 +1,13 @@
+* {
+    font-family: 'SF Pro Display', sans-serif;
+    font-weight: normal;
+}
+
+
+/* typography variables */
+.medium {
+    font-weight: 500;
+}
+.bold {
+    font-weight: bold;
+}
