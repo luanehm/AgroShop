@@ -1,0 +1,99 @@
+/* Header - Grid style */
+header {
+    background-color: #00592F;
+}
+header .first-row .container {
+    display: flex;
+    align-items: center;
+}
+header .second-row .container {
+    display: flex;
+    align-items: center;
+    padding-top: 8px;
+    padding-bottom: 14px;
+}
+
+/* Header - Search style */
+header .holder-search {
+    position: relative;
+    margin-left: 37.5px;
+}
+header .holder-search #input-search {
+    width: 578px;
+    height: 40px;
+    padding: 12px 44px 12px 16px;
+    border: 0;
+    border-radius: 4px;
+}
+header .holder-search .icon-search {
+    position: absolute;
+    top: 11px;
+    right: 12px;
+    color: #000;
+    opacity: .28;
+}
+
+/* Header - User Navigation style */
+header .user-navigation {
+    display: inline-flex;
+    column-gap: 20px;
+    align-items: center;
+    margin-left: auto;
+}
+
+/* Header - Area Navigation style */
+header .area-navigation {
+    display: inline-flex;
+    column-gap: 8px;
+   
+}
+header .area-navigation .icon-area {
+    font-size: 34px;
+    color: #CE352E;
+}
+header .area-navigation .area-text {
+    color: #fff;
+}
+header .area-navigation .area-text .area-text--label {
+    font-size: 12px;
+}
+header .area-navigation .area-text .area-text--location {
+    font-size: 16px;
+}
+
+/* Header - Menu style */
+header .menu {
+    margin-left: 32px;
+}
+header .menu .menu-list {
+    display: inline-flex;
+    column-gap: 25px;
+}
+
+
+/* Header - Cart style */
+header .cart {
+    position: relative;
+    margin-left: auto;
+}
+header .cart .cart-link {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 6px;
+}
+header .cart .cart-link .cart-icon {
+    font-size: 30px;
+}
+header .cart .cart-items {
+    position: absolute;
+    top: -4px;
+    right: -8px;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 16px;
+    color: #fff;
+    background-color: #CE352E;
+    border-radius: 100%;
+}
