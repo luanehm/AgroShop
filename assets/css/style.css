@@ -19,3 +19,7 @@ a.link-nav {
 a.link-nav:hover {
     text-decoration: underline;
 }
+
+.content-page {
+    min-height: 100vh;
+}

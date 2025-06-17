@@ -1,0 +1,36 @@
+/* Footer - Grid style */
+footer {
+    background-color: #00592F;
+}
+footer .first-row {
+    display: flex;
+    justify-content: space-between;
+}
+footer .second-row {
+    display: flex;
+    justify-content: center;
+    padding: 34px 0;
+}
+
+/* Footer - Nav style */
+footer .column-nav {
+    margin-top: 94px;
+    display: flex;
+    column-gap: 50px;
+}
+footer .footer-nav .nav-title {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 28px;
+}
+footer .footer-nav .nav-list li a {
+    display: block;
+    font-size: 17px;
+    margin: 8px 0;
+}
+
+/* Footer - Rights style */
+footer .rights-text {
+    color: #fff;
+    font-size: 17px;
+}
