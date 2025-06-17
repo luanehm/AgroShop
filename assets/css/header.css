@@ -37,10 +37,13 @@ header .holder-search .icon-search {
 }
 
 /* Header - Menu style */
+header .holder-nav {
+    margin-left: auto;
+}
 header .menu {
     display: inline-flex;
     align-items: center;
-    margin-left: auto;
+    
 }
 header .menu .menu-list {
     display: inline-flex;
@@ -98,4 +101,37 @@ header .cart .cart-items {
     color: #fff;
     background-color: #CE352E;
     border-radius: 100%;
+}
+
+@media (max-width: 1200px) {
+    header {
+        .holder-search #input-search {
+            width: 420px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    header {
+        .first-row .container {
+            flex-wrap: wrap;
+            padding-bottom: 16px;
+        }
+        .logo {
+            order: 1;
+        }
+        .holder-search {
+            order: 3;
+            width: 100%;
+            margin: 0;
+
+            #input-search {
+                width: 100%;
+            }
+        }
+
+        .holder-nav {
+            order: 2;
+        }
+    }
 }

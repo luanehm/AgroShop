@@ -1,4 +1,6 @@
-* {
+*,
+h1, h2, h3, h4, h5, h6,
+a, span {
     font-family: 'SF Pro Display', sans-serif;
     font-weight: normal;
 }
@@ -19,8 +21,4 @@ a.link-nav {
 }
 a.link-nav:hover {
     text-decoration: underline;
-}
-
-.content-page {
-    min-height: 100vh;
 }
