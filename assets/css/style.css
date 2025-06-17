@@ -1,4 +1,6 @@
-* {
+*,
+h1, h2, h3, h4, h5, h6,
+a, span {
     font-family: 'SF Pro Display', sans-serif;
     font-weight: normal;
 }
@@ -15,6 +17,7 @@
 a.link-nav {
     color: #fff;
     text-decoration: none;
+    font-weight: normal;
 }
 a.link-nav:hover {
     text-decoration: underline;
