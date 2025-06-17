@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raízes e Tubérculos - Produtos</title>
+    <link rel="stylesheet" href="categoria.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="breadcrumb">
+            <a href="#" class="breadcrumb-link">Início</a>
+            <span class="breadcrumb-separator">></span>
+            <a href="#" class="breadcrumb-link">Produtos</a>
+            <span class="breadcrumb-separator">></span>
+            <span class="breadcrumb-current">Raízes e Tubérculos</span>
+        </nav>
+
+        <header class="page-header">
+            <div class="header-content">
+                <div class="header-icon">🥕🍠🥔</div>
+                <div class="header-text">
+                    <h1 class="page-title">Raízes e Tubérculos</h1>
+                    <p class="product-count"><span id="product-count">0</span> produtos encontrados</p>
+                </div>
+            </div>
+        </header>
+
+        <section class="filters-section">
+            <div class="filters-grid">
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="producer">
+                        <div class="filter-icon">👨‍🌾</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Produtor</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="location">
+                        <div class="filter-icon">📍</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Localização</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="availability">
+                        <div class="filter-icon">✅</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Disponibilidade</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="format">
+                        <div class="filter-icon">📦</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Formato do Lote</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="harvest_date">
+                        <div class="filter-icon">📅</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Data Colheita</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <div class="filter-dropdown" data-filter="delivery">
+                        <div class="filter-icon">🚚</div>
+                        <div class="filter-content">
+                            <label class="filter-label">Entrega</label>
+                            <div class="dropdown-trigger">
+                                <span class="dropdown-value">Todos</span>
+                                <span class="dropdown-arrow">▼</span>
+                            </div>
+                            <div class="dropdown-menu">
+                                <div class="dropdown-option" data-value="">Todos</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <div id="products-grid" class="products-grid">
+                </div>
+        </section>
+
+        <section class="sort-section">
+            <div class="sort-dropdown" id="sort-dropdown">
+                <label class="sort-label">Ordenar por:</label>
+                <div class="dropdown-trigger">
+                    <span class="dropdown-value">Nome A-Z</span>
+                    <span class="dropdown-arrow">▼</span>
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-option" data-value="name-asc">Nome A-Z</div>
+                    <div class="dropdown-option" data-value="name-desc">Nome Z-A</div>
+                    <div class="dropdown-option" data-value="harvest-desc">Data Colheita (mais recente)</div>
+                    <div class="dropdown-option" data-value="availability">Disponibilidade</div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="categoria.js"></script>
+</body>
+</html>
