@@ -14,7 +14,7 @@ footer .second-row {
 
 /* Footer - Nav style */
 footer .column-nav {
-    margin-top: 94px;
+    margin-top: 60px;
     display: flex;
     column-gap: 50px;
 }
@@ -33,4 +33,37 @@ footer .footer-nav .nav-list li a {
 footer .rights-text {
     color: #fff;
     font-size: 17px;
+}
+
+@media (max-width: 1200px) {
+    footer {
+        .column-nav {
+            margin-top: 28px;
+        }
+        .logo {
+            width: 118px;
+            height: 118px;
+        }
+
+        .footer-nav .nav-title {
+            font-size: 20px;
+        }
+
+        .footer-nav .nav-list li a {
+            font-size: 14px;
+        }
+
+        .rights-text {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 991px) {
+    footer {
+        .first-row {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
 }
