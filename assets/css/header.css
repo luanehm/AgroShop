@@ -6,6 +6,9 @@ header .first-row .container {
     display: flex;
     align-items: center;
 }
+header .second-row {
+    background-color: #D0E072;
+}
 header .second-row .container {
     display: flex;
     align-items: center;
@@ -33,12 +36,18 @@ header .holder-search .icon-search {
     opacity: .28;
 }
 
-/* Header - User Navigation style */
-header .user-navigation {
+/* Header - Menu style */
+header .menu {
     display: inline-flex;
-    column-gap: 20px;
     align-items: center;
     margin-left: auto;
+}
+header .menu .menu-list {
+    display: inline-flex;
+    column-gap: 25px;
+}
+header .menu .user-icon {
+    margin-left: 20px;
 }
 
 /* Header - Area Navigation style */
@@ -52,22 +61,13 @@ header .area-navigation .icon-area {
     color: #CE352E;
 }
 header .area-navigation .area-text {
-    color: #fff;
+    color: #00592F;
 }
 header .area-navigation .area-text .area-text--label {
     font-size: 12px;
 }
 header .area-navigation .area-text .area-text--location {
     font-size: 16px;
-}
-
-/* Header - Menu style */
-header .menu {
-    margin-left: 32px;
-}
-header .menu .menu-list {
-    display: inline-flex;
-    column-gap: 25px;
 }
 
 
@@ -80,9 +80,11 @@ header .cart .cart-link {
     display: inline-flex;
     align-items: center;
     column-gap: 6px;
+    color: #00592F;
 }
 header .cart .cart-link .cart-icon {
     font-size: 30px;
+    color: #00592F;
 }
 header .cart .cart-items {
     position: absolute;
