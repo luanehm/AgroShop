@@ -1,4 +1,4 @@
-#contact-page {
+#categoria-page {
     .breadcrumb {
         display: flex;
         align-items: center;
@@ -319,7 +319,7 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    #contact-page {
+    #categoria-page {
         .filters-grid {
             grid-template-columns: 1fr;
             gap: 12px;
@@ -353,7 +353,7 @@
 }
 
 @media (max-width: 480px) {
-    #contact-page {
+    #categoria-page {
         .products-grid {
             grid-template-columns: repeat(2, 1fr);
         }
