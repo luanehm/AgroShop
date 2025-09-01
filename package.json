@@ -8,5 +8,19 @@
     "next": "^15.5.2",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
-  }
+  },
+  "name": "agroshop",
+  "version": "1.0.0",
+  "description": "Plataforma B2B para conectar pequenos produtores a compradores institucionais, combatendo o desperdício de alimentos.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luanehm/AgroShop.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luanehm/AgroShop/issues"
+  },
+  "homepage": "https://github.com/luanehm/AgroShop#readme"
 }
