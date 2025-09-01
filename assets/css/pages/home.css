@@ -1,85 +1,84 @@
 #home-page {
-    .row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 35px;
-    }
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35px;
+  }
 
-    .card-wrapper {
-        flex: 1 1 9.5rem;
-        max-width: 9.5rem;
-    }
+  .card-wrapper {
+    flex: 1 1 9.5rem;
+    max-width: 9.5rem;
+  }
 
-    .category-title {
-        font-size: 24px;
-    }
+  .category-title {
+    font-size: 24px;
+  }
 
-    .card-personalizado {
-        background-color: rgba(217, 217, 217, 0.65);
-        border-radius: 22px;
-        width: 9.5rem;
-        height: 9.5rem;
-        border: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+  .card-personalizado {
+    background-color: rgba(217, 217, 217, 0.65);
+    border-radius: 22px;
+    width: 9.5rem;
+    height: 9.5rem;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
-    .card-personalizado img {
-        max-width: 70%;
-        display: block;
-    }
+  .card-personalizado img {
+    max-width: 70%;
+    display: block;
+  }
 
-    .card-body {
-        padding: 0;
-        margin: 0;
-        text-align: center;
-    }
+  .card-body {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
 
-    .card-body h2 {
-        font-size: 1rem;
-        width: 100%;
-        margin: 0;
-    }
-    
-    .banner-img {
-        width: 100%;
-    }
-    .category {
-        background-color: #f0f0f0;
-        color: #000;
-        padding: 10px 15px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: background-color 0.3s ease;
-    }
+  .card-body h2 {
+    font-size: 1rem;
+    width: 100%;
+    margin: 0;
+  }
 
-    .category:hover {
-        background-color: #d9ead3;
-    }
+  .banner-img {
+    width: 100%;
+  }
+  .category {
+    background-color: #f0f0f0;
+    color: #000;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+  }
 
-    .discount {
-        background-color: #28a745;
-        color: white;
-        padding: 15px 25px;
-        font-size: 1.2rem;
-        font-weight: bold;
-        border-radius: 10px;
-    }
+  .category:hover {
+    background-color: #d9ead3;
+  }
 
-    .card-title {
-        font-size: 1.1rem;
-        font-weight: 600;
-    }
+  .discount {
+    background-color: #28a745;
+    color: white;
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 10px;
+  }
 
-    .card-text {
-        font-size: 0.9rem;
-    }
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
 
-    .badge.bg-secondary {
-        padding: 10px 15px;
-        font-size: 0.9rem;
-    }
+  .card-text {
+    font-size: 0.9rem;
+  }
 
+  .badge.bg-secondary {
+    padding: 10px 15px;
+    font-size: 0.9rem;
+  }
 }

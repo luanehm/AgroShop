@@ -1,137 +1,134 @@
 /* Header - Grid style */
 header {
-    background-color: #00592F;
+  background-color: #00592f;
 }
 header .first-row .container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 header .second-row {
-    background-color: #D0E072;
+  background-color: #d0e072;
 }
 header .second-row .container {
-    display: flex;
-    align-items: center;
-    padding-top: 8px;
-    padding-bottom: 14px;
+  display: flex;
+  align-items: center;
+  padding-top: 8px;
+  padding-bottom: 14px;
 }
 
 /* Header - Search style */
 header .holder-search {
-    position: relative;
-    margin-left: 37.5px;
+  position: relative;
+  margin-left: 37.5px;
 }
 header .holder-search #input-search {
-    width: 578px;
-    height: 40px;
-    padding: 12px 44px 12px 16px;
-    border: 0;
-    border-radius: 4px;
+  width: 578px;
+  height: 40px;
+  padding: 12px 44px 12px 16px;
+  border: 0;
+  border-radius: 4px;
 }
 header .holder-search .icon-search {
-    position: absolute;
-    top: 11px;
-    right: 12px;
-    color: #000;
-    opacity: .28;
+  position: absolute;
+  top: 11px;
+  right: 12px;
+  color: #000;
+  opacity: 0.28;
 }
 
 /* Header - Menu style */
 header .holder-nav {
-    margin-left: auto;
+  margin-left: auto;
 }
 header .menu {
-    display: inline-flex;
-    align-items: center;
-    
+  display: inline-flex;
+  align-items: center;
 }
 header .menu .menu-list {
-    display: inline-flex;
-    column-gap: 25px;
+  display: inline-flex;
+  column-gap: 25px;
 }
 header .menu .user-icon {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 /* Header - Area Navigation style */
 header .area-navigation {
-    display: inline-flex;
-    column-gap: 8px;
-   
+  display: inline-flex;
+  column-gap: 8px;
 }
 header .area-navigation .icon-area {
-    font-size: 34px;
-    color: #CE352E;
+  font-size: 34px;
+  color: #ce352e;
 }
 header .area-navigation .area-text {
-    color: #00592F;
+  color: #00592f;
 }
 header .area-navigation .area-text .area-text--label {
-    font-size: 12px;
+  font-size: 12px;
 }
 header .area-navigation .area-text .area-text--location {
-    font-size: 16px;
+  font-size: 16px;
 }
-
 
 /* Header - Cart style */
 header .cart {
-    position: relative;
-    margin-left: auto;
+  position: relative;
+  margin-left: auto;
 }
 header .cart .cart-link {
-    display: inline-flex;
-    align-items: center;
-    column-gap: 6px;
-    color: #00592F;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 6px;
+  color: #00592f;
 }
 header .cart .cart-link .cart-icon {
-    font-size: 30px;
-    color: #00592F;
+  font-size: 30px;
+  color: #00592f;
 }
 header .cart .cart-items {
-    position: absolute;
-    top: -4px;
-    right: -8px;
-    width: 16px;
-    height: 16px;
-    text-align: center;
-    font-size: 10px;
-    line-height: 16px;
-    color: #fff;
-    background-color: #CE352E;
-    border-radius: 100%;
+  position: absolute;
+  top: -4px;
+  right: -8px;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  font-size: 10px;
+  line-height: 16px;
+  color: #fff;
+  background-color: #ce352e;
+  border-radius: 100%;
 }
 
 @media (max-width: 1200px) {
-    header {
-        .holder-search #input-search {
-            width: 420px;
-        }
+  header {
+    .holder-search #input-search {
+      width: 420px;
     }
+  }
 }
 
 @media (max-width: 991px) {
-    header {
-        .first-row .container {
-            flex-wrap: wrap;
-            padding-bottom: 16px;
-        }
-        .logo {
-            order: 1;
-        }
-        .holder-search {
-            order: 3;
-            width: 100%;
-            margin: 0;
-
-            #input-search {
-                width: 100%;
-            }
-        }
-
-        .holder-nav {
-            order: 2;
-        }
+  header {
+    .first-row .container {
+      flex-wrap: wrap;
+      padding-bottom: 16px;
     }
+    .logo {
+      order: 1;
+    }
+    .holder-search {
+      order: 3;
+      width: 100%;
+      margin: 0;
+
+      #input-search {
+        width: 100%;
+      }
+    }
+
+    .holder-nav {
+      order: 2;
+    }
+  }
 }
