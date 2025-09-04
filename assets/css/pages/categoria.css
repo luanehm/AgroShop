@@ -47,6 +47,7 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 16px;
+    margin-bottom: 32px;
   }
 
   .filter-group {
@@ -190,6 +191,15 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
     gap: 20px;
+
+    &.products-grid--empty {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 200px;
+      color: #00592f;
+      font-size: 16px;
+    }
   }
 
   .product-card {
@@ -272,7 +282,7 @@
   .empty-state {
     text-align: center;
     padding: 32px;
-    color: #fff;
+    color: #00592f;
   }
 
   .empty-state {
