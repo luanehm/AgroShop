@@ -91,49 +91,70 @@ export default function ProductCatalog() {
     <section className="products-section">
       <div className="filters-grid">
         {/* Producer Filter */}
-        <select className="filter-select" value={filters.producer} onChange={e => handleFilterChange("producer", e.target.value)}>
-          {productData.filters.producers.map((producer) => (
-            <option key={producer} value={producer === "Todos" ? "" : producer}>{producer}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-producer" className="filter-label">Produtor</label>
+          <select className="filter-select" id="filter-producer" name="filter-producer" value={filters.producer} onChange={e => handleFilterChange("producer", e.target.value)}>
+            {productData.filters.producers.map((producer) => (
+              <option key={producer} value={producer === "Todos" ? "" : producer}>{producer}</option>
+            ))}
+          </select>
+        </div>
         {/* Location Filter */}
-        <select className="filter-select" value={filters.location} onChange={e => handleFilterChange("location", e.target.value)}>
-          {productData.filters.locations.map((location) => (
-            <option key={location} value={location === "Todos" ? "" : location}>{location}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-location" className="filter-label">Localização</label>
+          <select className="filter-select" id="filter-location" name="filter-location" value={filters.location} onChange={e => handleFilterChange("location", e.target.value)}>
+            {productData.filters.locations.map((location) => (
+              <option key={location} value={location === "Todos" ? "" : location}>{location}</option>
+            ))}
+          </select>
+        </div>
         {/* Availability Filter */}
-        <select className="filter-select" value={filters.availability} onChange={e => handleFilterChange("availability", e.target.value)}>
-          {productData.filters.availability.map((availability) => (
-            <option key={availability} value={availability === "Todos" ? "" : availability}>{availability}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-availability" className="filter-label">Disponibilidade</label>
+          <select className="filter-select" id="filter-availability" name="filter-availability" value={filters.availability} onChange={e => handleFilterChange("availability", e.target.value)}>
+            {productData.filters.availability.map((availability) => (
+              <option key={availability} value={availability === "Todos" ? "" : availability}>{availability}</option>
+            ))}
+          </select>
+        </div>
         {/* Format Filter */}
-        <select className="filter-select" value={filters.format} onChange={e => handleFilterChange("format", e.target.value)}>
-          {productData.filters.formats.map((format) => (
-            <option key={format} value={format === "Todos" ? "" : format}>{format}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-format" className="filter-label">Formato do Lote</label>
+          <select className="filter-select" id="filter-format" name="filter-format" value={filters.format} onChange={e => handleFilterChange("format", e.target.value)}>
+            {productData.filters.formats.map((format) => (
+              <option key={format} value={format === "Todos" ? "" : format}>{format}</option>
+            ))}
+          </select>
+        </div>
         {/* Harvest Date Filter */}
-        <select className="filter-select" value={filters.harvest_date} onChange={e => handleFilterChange("harvest_date", e.target.value)}>
-          <option value="">Todos</option>
-          {[...new Set(relevantProducts.map((p) => p.harvest_date))].sort().map((date) => (
-            <option key={date} value={date}>{formatDate(date)}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-harvest-date" className="filter-label">Data Colheita</label>
+          <select className="filter-select" id="filter-harvest-date" name="filter-harvest-date" value={filters.harvest_date} onChange={e => handleFilterChange("harvest_date", e.target.value)}>
+            <option value="">Todos</option>
+            {[...new Set(relevantProducts.map((p) => p.harvest_date))].sort().map((date) => (
+              <option key={date} value={date}>{formatDate(date)}</option>
+            ))}
+          </select>
+        </div>
         {/* Delivery Filter */}
-        <select className="filter-select" value={filters.delivery} onChange={e => handleFilterChange("delivery", e.target.value)}>
-          {productData.filters.delivery.map((delivery) => (
-            <option key={delivery} value={delivery === "Todos" ? "" : delivery}>{delivery}</option>
-          ))}
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-delivery" className="filter-label">Entrega</label>
+          <select className="filter-select" id="filter-delivery" name="filter-delivery" value={filters.delivery} onChange={e => handleFilterChange("delivery", e.target.value)}>
+            {productData.filters.delivery.map((delivery) => (
+              <option key={delivery} value={delivery === "Todos" ? "" : delivery}>{delivery}</option>
+            ))}
+          </select>
+        </div>
         {/* Sort Dropdown */}
-        <select className="filter-select" value={sort} onChange={e => setSort(e.target.value)}>
-          <option value="name-asc">Nome A-Z</option>
-          <option value="name-desc">Nome Z-A</option>
-          <option value="harvest-desc">Data Colheita (mais recente)</option>
-          <option value="availability">Disponibilidade</option>
-        </select>
+        <div className="filter-group">
+          <label htmlFor="filter-sort" className="filter-label">Ordenar por</label>
+          <select className="filter-select" id="filter-sort" name="filter-sort" value={sort} onChange={e => setSort(e.target.value)}>
+            <option value="name-asc">Nome A-Z</option>
+            <option value="name-desc">Nome Z-A</option>
+            <option value="harvest-desc">Data Colheita (mais recente)</option>
+            <option value="availability">Disponibilidade</option>
+          </select>
+        </div>
       </div>
       <div className={`products-grid${products.length === 0 ? ' products-grid--empty' : ''}`}>
         {products.length === 0 ? (
