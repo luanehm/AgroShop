@@ -1,6 +1,6 @@
-import { createContext, useContext, useReducer, useEffect } from "react";
+import { createContext, useContext, useReducer, useEffect, useState } from "react";
 
-const CartContext = createContext();
+const CartContext = createContext(undefined);
 
 // Ações do carrinho
 export const CART_ACTIONS = {
@@ -13,36 +13,24 @@ export const CART_ACTIONS = {
   CLEAR_NOTIFICATION: "CLEAR_NOTIFICATION",
 };
 
-// Função para carregar carrinho do localStorage
-const loadCartFromStorage = () => {
-  try {
-    const savedCart = localStorage.getItem("agroshop-cart");
-    if (savedCart) {
-      const parsedCart = JSON.parse(savedCart);
-      return {
-        ...parsedCart,
-        isModalOpen: false, // Sempre fechar modal ao carregar
-      };
-    }
-  } catch (error) {
-    console.error("Erro ao carregar carrinho do localStorage:", error);
-  }
-  return {
-    items: [],
-    isModalOpen: false,
-    totalItems: 0,
-    totalPrice: 0,
-  };
-};
-
 // Estado inicial do carrinho
 const initialState = {
-  ...loadCartFromStorage(),
+  items: [],
+  isModalOpen: false,
+  totalItems: 0,
+  totalPrice: 0,
   notification: null,
 };
 
 // Reducer para gerenciar estado do carrinho
 function cartReducer(state, action) {
+  if (action.type === "__HYDRATE__") {
+    return {
+      ...state,
+      ...action.payload,
+    };
+  }
+
   switch (action.type) {
     case CART_ACTIONS.ADD_ITEM: {
       const { product } = action.payload;
@@ -148,9 +136,11 @@ function cartReducer(state, action) {
 // Provider do contexto
 export function CartProvider({ children }) {
   const [state, dispatch] = useReducer(cartReducer, initialState);
+  const [isHydrated, setIsHydrated] = useState(false);
 
   // Salvar carrinho no localStorage sempre que o estado mudar
   useEffect(() => {
+    if (!isHydrated) return;
     try {
       const cartToSave = {
         items: state.items,
@@ -161,7 +151,27 @@ export function CartProvider({ children }) {
     } catch (error) {
       console.error("Erro ao salvar carrinho no localStorage:", error);
     }
-  }, [state.items, state.totalItems, state.totalPrice]);
+  }, [state.items, state.totalItems, state.totalPrice, isHydrated]);
+
+  // Carregar carrinho do localStorage ao iniciar
+  useEffect(() => {
+    try {
+      const savedCart = localStorage.getItem("agroshop-cart");
+      if (savedCart) {
+        const parsedCart = JSON.parse(savedCart);
+        dispatch({
+          type: "__HYDRATE__",
+          payload: {
+            ...parsedCart,
+            isModalOpen: false,
+          },
+        });
+      }
+    } catch (error) {
+      console.error("Erro ao carregar carrinho do localStorage:", error);
+    }
+    setIsHydrated(true);
+  }, []);
 
   const addToCart = (product) => {
     dispatch({ type: CART_ACTIONS.ADD_ITEM, payload: { product } });
@@ -275,14 +285,19 @@ export function CartProvider({ children }) {
     clearNotification,
   };
 
+  if (!isHydrated) return null;
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
 }
 
 // Hook para usar o contexto
 export function useCart() {
   const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart deve ser usado dentro de um CartProvider");
+  if (context === undefined) {
+    if (process.env.NODE_ENV !== "production") {
+      console.warn("useCart deve ser usado dentro de um CartProvider");
+    }
+    // Retorna um objeto vazio para evitar crash, mas alerta o dev
+    return {};
   }
   return context;
 }
