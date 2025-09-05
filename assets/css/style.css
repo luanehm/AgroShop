@@ -27,3 +27,6 @@ a.link-nav {
 a.link-nav:hover {
   text-decoration: underline;
 }
+
+/* Import cart styles */
+@import url("./cart.css");
