@@ -4,11 +4,13 @@ import Footer from "../components/Footer";
 import CartModal from "../components/CartModal";
 import ProductCard from "../components/ProductCard";
 import { CartProvider } from "../contexts/CartContext";
+import Toast from "../components/Toast";
 import products from "../data/products";
 
 const sampleProducts = products;
 
 function HomeContent() {
+  const { notification, clearNotification } = require("../contexts/CartContext").useCart();
   return (
     <>
       <Head>
@@ -184,6 +186,15 @@ function HomeContent() {
       </main>
       <Footer />
       <CartModal />
+      {/* Toast global para notificações do carrinho */}
+      {notification && (
+        <Toast
+          message={notification.message}
+          type={notification.type}
+          duration={notification.duration}
+          onClose={clearNotification}
+        />
+      )}
       {/* Bootstrap JS CDN (optional, for interactive components) */}
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
