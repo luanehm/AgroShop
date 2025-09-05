@@ -2,8 +2,10 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ProductCatalog from "../components/ProductCatalog";
+import CartModal from "../components/CartModal";
+import { CartProvider } from "../contexts/CartContext";
 
-export default function Categoria() {
+function CategoryContent() {
   return (
     <>
       <Head>
@@ -37,6 +39,7 @@ export default function Categoria() {
         <ProductCatalog />
       </main>
       <Footer />
+      <CartModal />
       {/* Bootstrap JS CDN (optional, for interactive components) */}
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -44,5 +47,13 @@ export default function Categoria() {
         crossOrigin="anonymous"
       ></script>
     </>
+  );
+}
+
+export default function Home() {
+  return (
+    <CartProvider>
+      <CategoryContent />
+    </CartProvider>
   );
 }
