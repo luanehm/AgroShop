@@ -1,8 +1,73 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import CartModal from "../components/CartModal";
+import ProductCard from "../components/ProductCard";
+import { CartProvider } from "../contexts/CartContext";
 
-export default function Home() {
+// Dados de exemplo dos produtos
+const sampleProducts = [
+  {
+    id: 1,
+    name: "Tomates",
+    producer: "Fazenda Colorado",
+    price: 8.5,
+    originalPrice: 10.0,
+    image: "/assets/images/batata_inglesa.png",
+    deliveryTime: "18h",
+    distance: "70km",
+    discount: "15% OFF",
+  },
+  {
+    id: 2,
+    name: "Batata Doce",
+    producer: "Fazenda Verde",
+    price: 6.0,
+    image: "/assets/images/batata_doce.png",
+    deliveryTime: "24h",
+    distance: "50km",
+  },
+  {
+    id: 3,
+    name: "Mandioca",
+    producer: "Sítio São José",
+    price: 4.5,
+    image: "/assets/images/mandioca.png",
+    deliveryTime: "12h",
+    distance: "30km",
+  },
+  {
+    id: 4,
+    name: "Batata Inglesa",
+    producer: "Fazenda Colorado",
+    price: 7.0,
+    originalPrice: 8.5,
+    image: "/assets/images/batata_inglesa.png",
+    deliveryTime: "18h",
+    distance: "70km",
+    discount: "18% OFF",
+  },
+  {
+    id: 5,
+    name: "Cenoura",
+    producer: "Horta Orgânica",
+    price: 5.5,
+    image: "/assets/images/batata_doce.png",
+    deliveryTime: "6h",
+    distance: "20km",
+  },
+  {
+    id: 6,
+    name: "Cebola",
+    producer: "Fazenda Grande",
+    price: 3.5,
+    image: "/assets/images/mandioca.png",
+    deliveryTime: "36h",
+    distance: "90km",
+  },
+];
+
+function HomeContent() {
   return (
     <>
       <Head>
@@ -140,20 +205,10 @@ export default function Home() {
         </section>
         <section className="container py-4">
           <h4 className="mb-4">Mais vendidos</h4>
-          <div className="row row-cols-2 row-cols-md-6 g-3">
-            <div className="col">
-              <div className="card">
-                <div className="card-body text-center">
-                  <span className="badge bg-success">OFF</span>
-                  <h5 className="card-title">Tomates</h5>
-                  <p className="card-text">
-                    Fazenda Colorado
-                    <br />
-                    18h - 70km
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3">
+            {sampleProducts.slice(0, 6).map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
           </div>
         </section>
         <section className="container py-4">
@@ -187,6 +242,7 @@ export default function Home() {
         </section>
       </main>
       <Footer />
+      <CartModal />
       {/* Bootstrap JS CDN (optional, for interactive components) */}
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
@@ -194,5 +250,13 @@ export default function Home() {
         crossOrigin="anonymous"
       ></script>
     </>
+  );
+}
+
+export default function Home() {
+  return (
+    <CartProvider>
+      <HomeContent />
+    </CartProvider>
   );
 }
