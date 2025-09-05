@@ -1,30 +1,36 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import ProductCard from "./ProductCard";
+import products from "../data/products";
 
-const productData = {
-  products: [
-    { id: 1, name: "Batata-Doce", image: "🍠", category: "raizes", producer: "Fazenda São João", location: "São Paulo", availability: "Disponível", format: "Avulso", harvest_date: "2025-06-10", delivery: "Expressa" },
-    { id: 2, name: "Batata Inglesa", image: "🥔", category: "tuberculos", producer: "Sítio Verde", location: "Minas Gerais", availability: "Disponível", format: "Saco 2kg", harvest_date: "2025-06-12", delivery: "Normal" },
-    { id: 3, name: "Mandioca (Aipim)", image: "🥖", category: "raizes", producer: "Agricultura Familiar", location: "Bahia", availability: "Disponível", format: "Avulso", harvest_date: "2025-06-08", delivery: "Expressa" },
-    { id: 4, name: "Inhame", image: "🥔", category: "tuberculos", producer: "Cooperativa Rural", location: "Rio de Janeiro", availability: "Limitado", format: "Avulso", harvest_date: "2025-06-15", delivery: "Normal" },
-    { id: 5, name: "Cará", image: "🥔", category: "tuberculos", producer: "Fazenda Orgânica", location: "São Paulo", availability: "Disponível", format: "Avulso", harvest_date: "2025-06-11", delivery: "Expressa" },
-    { id: 6, name: "Nabo", image: "🥕", category: "raizes", producer: "Horta Urbana", location: "Rio Grande do Sul", availability: "Disponível", format: "Maço", harvest_date: "2025-06-13", delivery: "Normal" },
-    { id: 8, name: "Rabanete", image: "🥕", category: "raizes", producer: "Sítio Verde", location: "Minas Gerais", availability: "Disponível", format: "Maço", harvest_date: "2025-06-14", delivery: "Normal" },
-    { id: 10, name: "Batata Baroa (Mandioquinha)", image: "🥖", category: "raizes", producer: "Cooperativa Rural", location: "Rio de Janeiro", availability: "Disponível", format: "Avulso", harvest_date: "2025-06-07", delivery: "Normal" },
-    { id: 11, name: "Cará-Moela", image: "🥔", category: "tuberculos", producer: "Fazenda Orgânica", location: "São Paulo", availability: "Disponível", format: "Avulso", harvest_date: "2025-06-12", delivery: "Expressa" },
-    { id: 12, name: "Mangarito", image: "🥔", category: "tuberculos", producer: "Horta Urbana", location: "Rio Grande do Sul", availability: "Limitado", format: "Avulso", harvest_date: "2025-06-10", delivery: "Normal" },
+const filters = {
+  producers: [
+    "Todos",
+    ...Array.from(new Set(products.map(p => p.producer))).sort()
   ],
-  filters: {
-    producers: ["Todos", "Fazenda São João", "Sítio Verde", "Agricultura Familiar", "Cooperativa Rural", "Fazenda Orgânica", "Horta Urbana", "Fazenda do Norte"],
-    locations: ["Todos", "São Paulo", "Minas Gerais", "Bahia", "Rio de Janeiro", "Rio Grande do Sul", "Ceará"],
-    availability: ["Todos", "Disponível", "Limitado"],
-    formats: ["Todos", "Avulso", "Saco 2kg", "Maço", "Unidade"],
-    delivery: ["Todos", "Expressa", "Normal"],
-  },
+  locations: [
+    "Todos",
+    ...Array.from(new Set(products.map(p => p.location))).sort()
+  ],
+  availability: [
+    "Todos",
+    ...Array.from(new Set(products.map(p => p.availability))).sort()
+  ],
+  formats: [
+    "Todos",
+    ...Array.from(new Set(products.map(p => p.format))).sort()
+  ],
+  delivery: [
+    "Todos",
+    ...Array.from(new Set(products.map(p => p.delivery))).sort()
+  ],
 };
 
-const relevantProducts = productData.products.filter(
-  (product) => product.category === "raizes" || product.category === "tuberculos"
-);
+const productData = {
+  products,
+  filters,
+};
+
+const relevantProducts = productData.products;
 
 function formatDate(dateString) {
   const date = new Date(dateString);
@@ -156,23 +162,14 @@ export default function ProductCatalog() {
           </select>
         </div>
       </div>
-      <div className={`products-grid${products.length === 0 ? ' products-grid--empty' : ''}`}>
+      <div className={`row row-cols-2 row-cols-md-3 row-cols-lg-6 g-3 products-grid${products.length === 0 ? ' products-grid--empty' : ''}`}>
         {products.length === 0 ? (
           <div className="empty-state">
             <p>Nenhum produto encontrado com os filtros selecionados.</p>
           </div>
         ) : (
           products.map((product) => (
-            <div className="product-card animate-in" key={product.id} tabIndex={0} onClick={() => alert(`Detalhes do Produto:\n\nNome: ${product.name}\nProdutor: ${product.producer}\nLocalização: ${product.location}\nDisponibilidade: ${product.availability}\nFormato: ${product.format}\nData da Colheita: ${formatDate(product.harvest_date)}\nTipo de Entrega: ${product.delivery}`)}>
-              <div className="product-image">{product.image}</div>
-              <h3 className="product-name">{product.name}</h3>
-              <div className="product-details">
-                <div>{product.producer}</div>
-                <div>{product.location}</div>
-                <div>{product.format}</div>
-              </div>
-              <div className={`availability-badge ${product.availability.toLowerCase().replace("í", "i")}`}>{product.availability}</div>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))
         )}
       </div>

@@ -4,70 +4,13 @@ import Footer from "../components/Footer";
 import CartModal from "../components/CartModal";
 import ProductCard from "../components/ProductCard";
 import { CartProvider } from "../contexts/CartContext";
+import Toast from "../components/Toast";
+import products from "../data/products";
 
-// Dados de exemplo dos produtos
-const sampleProducts = [
-  {
-    id: 1,
-    name: "Tomates",
-    producer: "Fazenda Colorado",
-    price: 8.5,
-    originalPrice: 10.0,
-    image: "/assets/images/batata_inglesa.png",
-    deliveryTime: "18h",
-    distance: "70km",
-    discount: "15% OFF",
-  },
-  {
-    id: 2,
-    name: "Batata Doce",
-    producer: "Fazenda Verde",
-    price: 6.0,
-    image: "/assets/images/batata_doce.png",
-    deliveryTime: "24h",
-    distance: "50km",
-  },
-  {
-    id: 3,
-    name: "Mandioca",
-    producer: "Sítio São José",
-    price: 4.5,
-    image: "/assets/images/mandioca.png",
-    deliveryTime: "12h",
-    distance: "30km",
-  },
-  {
-    id: 4,
-    name: "Batata Inglesa",
-    producer: "Fazenda Colorado",
-    price: 7.0,
-    originalPrice: 8.5,
-    image: "/assets/images/batata_inglesa.png",
-    deliveryTime: "18h",
-    distance: "70km",
-    discount: "18% OFF",
-  },
-  {
-    id: 5,
-    name: "Cenoura",
-    producer: "Horta Orgânica",
-    price: 5.5,
-    image: "/assets/images/batata_doce.png",
-    deliveryTime: "6h",
-    distance: "20km",
-  },
-  {
-    id: 6,
-    name: "Cebola",
-    producer: "Fazenda Grande",
-    price: 3.5,
-    image: "/assets/images/mandioca.png",
-    deliveryTime: "36h",
-    distance: "90km",
-  },
-];
+const sampleProducts = products;
 
 function HomeContent() {
+  const { notification, clearNotification } = require("../contexts/CartContext").useCart();
   return (
     <>
       <Head>
@@ -243,6 +186,15 @@ function HomeContent() {
       </main>
       <Footer />
       <CartModal />
+      {/* Toast global para notificações do carrinho */}
+      {notification && (
+        <Toast
+          message={notification.message}
+          type={notification.type}
+          duration={notification.duration}
+          onClose={clearNotification}
+        />
+      )}
       {/* Bootstrap JS CDN (optional, for interactive components) */}
       <script
         src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"

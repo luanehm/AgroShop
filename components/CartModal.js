@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useCart } from "../contexts/CartContext";
 import ProductImage from "./ProductImage";
 import ImageModal from "./ImageModal";
-import Toast from "./Toast";
 import CheckoutModal from "./CheckoutModal";
 
 const CartModal = () => {
@@ -11,12 +10,10 @@ const CartModal = () => {
     items,
     totalItems,
     totalPrice,
-    notification,
     toggleModal,
     removeFromCart,
     updateQuantity,
     clearCart,
-    clearNotification,
   } = useCart();
 
   const [imageModal, setImageModal] = useState({
@@ -258,15 +255,6 @@ const CartModal = () => {
         onClose={closeCheckoutModal}
       />
 
-      {/* Notificação Toast */}
-      {notification && (
-        <Toast
-          message={notification.message}
-          type={notification.type}
-          duration={notification.duration}
-          onClose={clearNotification}
-        />
-      )}
     </div>
   );
 };
