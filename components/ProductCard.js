@@ -36,10 +36,7 @@ const ProductCard = ({ product }) => {
               </span>
             )}
           </div>
-          <button
-            onClick={handleAddToCart}
-            className="btn btn-primary btn-add-cart"
-          >
+          <button onClick={handleAddToCart} className="btn btn-success">
             <i className="fa fa-shopping-cart" aria-hidden="true"></i>
             Adicionar ao Carrinho
           </button>
