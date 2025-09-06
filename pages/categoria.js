@@ -7,7 +7,8 @@ import Toast from "../components/Toast";
 import { CartProvider } from "../contexts/CartContext";
 
 function CategoryContent() {
-  const { notification, clearNotification } = require("../contexts/CartContext").useCart();
+  const { notification, clearNotification } =
+    require("../contexts/CartContext").useCart();
   return (
     <>
       <Head>
@@ -24,13 +25,20 @@ function CategoryContent() {
       <Header />
       <main id="categoria-page" className="container">
         <nav className="breadcrumb">
-          <a href="#" className="breadcrumb-link">Início</a>
+          <a href="#" className="breadcrumb-link">
+            Início
+          </a>
           <span className="breadcrumb-separator">&gt;</span>
-          <a href="#" className="breadcrumb-link">Produtos</a>
+          <a href="#" className="breadcrumb-link">
+            Produtos
+          </a>
           <span className="breadcrumb-separator">&gt;</span>
           <span className="breadcrumb-current">Raízes e Tubérculos</span>
         </nav>
-        <header className="page-header">
+        <header
+          className="page-header"
+          style={{ backgroundColor: "transparent" }}
+        >
           <div className="header-content">
             <div className="header-icon">🥕🍠🥔</div>
             <div className="header-text">
