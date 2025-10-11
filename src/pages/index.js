@@ -1,16 +1,14 @@
 import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import CartModal from "../components/CartModal";
 import ProductCard from "../components/ProductCard";
-import { CartProvider } from "../contexts/CartContext";
 import Toast from "../components/Toast";
 import products from "../data/products";
 
 const sampleProducts = products;
 
-function HomeContent() {
-  const { notification, clearNotification } = require("../contexts/CartContext").useCart();
+export default function Home() {
+  const { notification, clearNotification } =
+    require("../contexts/CartContext").useCart();
   return (
     <>
       <Head>
@@ -24,7 +22,6 @@ function HomeContent() {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header />
       <main id="home-page">
         <section className="bg-light">
           <div className="d-flex flex-wrap align-items-center w-100">
@@ -184,7 +181,6 @@ function HomeContent() {
           </div>
         </section>
       </main>
-      <Footer />
       <CartModal />
       {/* Toast global para notificações do carrinho */}
       {notification && (
@@ -202,13 +198,5 @@ function HomeContent() {
         crossOrigin="anonymous"
       ></script>
     </>
-  );
-}
-
-export default function Home() {
-  return (
-    <CartProvider>
-      <HomeContent />
-    </CartProvider>
   );
 }

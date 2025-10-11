@@ -1,8 +1,5 @@
-
 import React, { useState, useRef } from "react";
 import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 export default function Contato() {
   const [fullName, setFullName] = useState("");
@@ -10,7 +7,11 @@ export default function Contato() {
   const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [charCount, setCharCount] = useState(0);
-  const [errors, setErrors] = useState({ fullName: "", email: "", message: "" });
+  const [errors, setErrors] = useState({
+    fullName: "",
+    email: "",
+    message: "",
+  });
   const [showModal, setShowModal] = useState(false);
   const fullNameRef = useRef(null);
   const emailRef = useRef(null);
@@ -53,7 +54,10 @@ export default function Contato() {
 
   function handleFullNameChange(e) {
     setFullName(e.target.value);
-    setErrors((prev) => ({ ...prev, fullName: validateFullName(e.target.value) }));
+    setErrors((prev) => ({
+      ...prev,
+      fullName: validateFullName(e.target.value),
+    }));
   }
 
   function handleEmailChange(e) {
@@ -64,7 +68,10 @@ export default function Contato() {
   function handleMessageChange(e) {
     setMessage(e.target.value);
     setCharCount(e.target.value.trim().length);
-    setErrors((prev) => ({ ...prev, message: validateMessage(e.target.value) }));
+    setErrors((prev) => ({
+      ...prev,
+      message: validateMessage(e.target.value),
+    }));
   }
 
   function handlePhoneChange(e) {
@@ -76,7 +83,11 @@ export default function Contato() {
     const fullNameError = validateFullName(fullName);
     const emailError = validateEmail(email);
     const messageError = validateMessage(message);
-    setErrors({ fullName: fullNameError, email: emailError, message: messageError });
+    setErrors({
+      fullName: fullNameError,
+      email: emailError,
+      message: messageError,
+    });
     if (fullNameError) {
       fullNameRef.current && fullNameRef.current.focus();
       return;
@@ -105,10 +116,10 @@ export default function Contato() {
   return (
     <>
       <Head>
+        <script src="https://cdn.tailwindcss.com"></script>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>AgroShop - Fale conosco</title>
-        <script src="https://cdn.tailwindcss.com"></script>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -116,7 +127,7 @@ export default function Contato() {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header />
+
       <main id="contact-page">
         <div className="container">
           <div className="w-full mb-8 text-center md:text-left">
@@ -185,7 +196,12 @@ export default function Contato() {
             <h2 className="text-2xl font-semibold text-gray-800 mb-6">
               Formulário de Contato Direto
             </h2>
-            <form id="contactForm" className="space-y-4" onSubmit={handleSubmit} autoComplete="off">
+            <form
+              id="contactForm"
+              className="space-y-4"
+              onSubmit={handleSubmit}
+              autoComplete="off"
+            >
               <div>
                 <label htmlFor="fullName" className="sr-only">
                   Nome Completo
@@ -200,7 +216,9 @@ export default function Contato() {
                   onChange={handleFullNameChange}
                   ref={fullNameRef}
                 />
-                <p id="fullNameError" className="error-message">{errors.fullName}</p>
+                <p id="fullNameError" className="error-message">
+                  {errors.fullName}
+                </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
@@ -217,7 +235,9 @@ export default function Contato() {
                     onChange={handleEmailChange}
                     ref={emailRef}
                   />
-                  <p id="emailError" className="error-message">{errors.email}</p>
+                  <p id="emailError" className="error-message">
+                    {errors.email}
+                  </p>
                 </div>
                 <div>
                   <label htmlFor="phone" className="sr-only">
@@ -248,7 +268,9 @@ export default function Contato() {
                   onChange={handleMessageChange}
                   ref={messageRef}
                 ></textarea>
-                <p id="messageError" className="error-message">{errors.message}</p>
+                <p id="messageError" className="error-message">
+                  {errors.message}
+                </p>
                 <p className="text-sm text-gray-500 mt-1 text-right">
                   <span id="charCount">{charCount}</span>/500 caracteres
                 </p>
@@ -261,9 +283,7 @@ export default function Contato() {
               </button>
             </form>
             {showModal && (
-              <div
-                className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4"
-              >
+              <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4">
                 <div className="bg-white rounded-lg p-8 shadow-xl max-w-sm w-full text-center">
                   <p className="text-xl font-semibold text-gray-800 mb-4">
                     Mensagem Enviada com Sucesso!
@@ -280,7 +300,6 @@ export default function Contato() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }
