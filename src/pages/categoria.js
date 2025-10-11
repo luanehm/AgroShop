@@ -1,12 +1,6 @@
 import Head from "next/head";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import ProductCatalog from "../components/ProductCatalog";
-import CartModal from "../components/CartModal";
-import Toast from "../components/Toast";
-import { CartProvider } from "../contexts/CartContext";
 
-function CategoryContent() {
+export default function CategoryContent() {
   const { notification, clearNotification } =
     require("../contexts/CartContext").useCart();
   return (
@@ -22,7 +16,7 @@ function CategoryContent() {
           crossOrigin="anonymous"
         />
       </Head>
-      <Header />
+
       <main id="categoria-page" className="container">
         <nav className="breadcrumb">
           <a href="#" className="breadcrumb-link">
@@ -48,8 +42,7 @@ function CategoryContent() {
         </header>
         <ProductCatalog />
       </main>
-      <Footer />
-      <CartModal />
+
       {/* Toast global para notificações do carrinho */}
       {notification && (
         <Toast
@@ -66,13 +59,5 @@ function CategoryContent() {
         crossOrigin="anonymous"
       ></script>
     </>
-  );
-}
-
-export default function Home() {
-  return (
-    <CartProvider>
-      <CategoryContent />
-    </CartProvider>
   );
 }

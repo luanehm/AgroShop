@@ -1,6 +1,7 @@
 /* Footer - Grid style */
 footer {
   background-color: #00592f;
+  color: #fff;
 }
 footer .first-row {
   display: flex;
