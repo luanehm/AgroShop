@@ -1,20 +1,14 @@
 import Head from "next/head";
+import ProductCatalog from "../components/ProductCatalog";
+import Toast from "../components/Toast";
+import { useCart } from "../contexts/CartContext";
 
-export default function CategoryContent() {
-  const { notification, clearNotification } =
-    require("../contexts/CartContext").useCart();
+export default function CategoryPage() {
+  const { notification, clearNotification } = useCart();
   return (
     <>
       <Head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>AgroShop - Raízes e Tubérculos - Produtos</title>
-        <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-          integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT"
-          crossOrigin="anonymous"
-        />
       </Head>
 
       <main id="categoria-page" className="container">
@@ -52,12 +46,6 @@ export default function CategoryContent() {
           onClose={clearNotification}
         />
       )}
-      {/* Bootstrap JS CDN (optional, for interactive components) */}
-      <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
-        crossOrigin="anonymous"
-      ></script>
     </>
   );
 }
