@@ -1,9 +1,5 @@
 import Head from "next/head";
 
-import ProductCatalog from "../components/ProductCatalog";
-
-import Toast from "../components/Toast";
-
 export default function CategoryContent() {
   const { notification, clearNotification } =
     require("../contexts/CartContext").useCart();
